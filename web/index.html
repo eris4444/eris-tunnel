@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Eris Tunnel</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#127760;</text></svg>">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<!-- ── login ─────────────────────────────────────────────────────────── -->
+<div id="login-screen" class="login-screen">
+  <form id="login-form" class="login-card">
+    <div class="login-logo">
+      <svg viewBox="0 0 48 48" width="52" height="52" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/>
+        </linearGradient></defs>
+        <path d="M24 4 L42 14 V34 L24 44 L6 34 V14 Z" fill="none" stroke="url(#lg)" stroke-width="2.5"/>
+        <path d="M14 24 h9 M25 24 h9" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="3.5" fill="url(#lg)"/>
+      </svg>
+    </div>
+    <h1>Eris Tunnel</h1>
+    <p class="muted" data-i18n="login.subtitle"></p>
+    <label data-i18n="login.username"></label>
+    <input id="login-username" type="text" autocomplete="username" required>
+    <label data-i18n="login.password"></label>
+    <input id="login-password" type="password" autocomplete="current-password" required>
+    <button type="submit" class="btn btn-primary btn-block" data-i18n="login.submit"></button>
+    <div id="login-error" class="form-error"></div>
+    <button type="button" class="lang-link" id="login-lang">English</button>
+  </form>
+</div>
+
+<!-- ── panel ─────────────────────────────────────────────────────────── -->
+<div id="app" class="app hidden">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <svg viewBox="0 0 48 48" width="30" height="30" aria-hidden="true">
+        <defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/>
+        </linearGradient></defs>
+        <path d="M24 4 L42 14 V34 L24 44 L6 34 V14 Z" fill="none" stroke="url(#bg1)" stroke-width="3"/>
+        <circle cx="24" cy="24" r="4" fill="url(#bg1)"/>
+      </svg>
+      <span>Eris Tunnel</span>
+    </div>
+    <nav>
+      <a href="#dashboard" class="nav-item" data-view="dashboard"><span class="ico">◈</span><span data-i18n="nav.dashboard"></span></a>
+      <a href="#ssh" class="nav-item" data-view="ssh"><span class="ico">⇄</span><span data-i18n="nav.ssh"></span></a>
+      <a href="#backhaul" class="nav-item" data-view="backhaul"><span class="ico">⇅</span><span data-i18n="nav.backhaul"></span></a>
+      <a href="#keys" class="nav-item" data-view="keys"><span class="ico">⚿</span><span data-i18n="nav.keys"></span></a>
+      <a href="#settings" class="nav-item" data-view="settings"><span class="ico">⚙</span><span data-i18n="nav.settings"></span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <span class="muted" id="panel-version"></span>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="menu-toggle" aria-label="Menu">☰</button>
+      <h2 id="page-title"></h2>
+      <div class="spacer"></div>
+      <button class="icon-btn" id="lang-toggle" title="Language">EN</button>
+      <button class="icon-btn" id="logout-btn" data-i18n-title="nav.logout">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M12 4 v8"/><path d="M6.3 7.3a8 8 0 1 0 11.4 0"/>
+        </svg>
+      </button>
+    </header>
+    <main id="view"></main>
+  </div>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast-root" class="toast-root"></div>
+
+<script src="/static/js/i18n.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
